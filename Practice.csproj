@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\DataBase.cs" />
+    <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="practiceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +90,7 @@
     <EmbeddedResource Include="UI\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataBase\practice.bacpac" />
     <None Include="practiceDataSet.xsc">
       <DependentUpon>practiceDataSet.xsd</DependentUpon>
     </None>
@@ -113,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
