@@ -1,4 +1,4 @@
-﻿using Practice.DataBase;
+﻿using Practice.dataBase;
 using Practice.UI;
 using System;
 using System.Collections.Generic;
@@ -18,8 +18,7 @@ namespace Practice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            IUserRepository userRepository = new UserRepository();
-            Application.Run(new MainForm());
+            Application.Run(new Auth());
         }
     }
 }

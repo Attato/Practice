@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
-namespace Practice.Common
+namespace Practice.dataBase
 {
     internal class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=gogs.wsr.ru;Initial Catalog=TourAgency;User ID=User04;Password=User04");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=ATTATO\SQLEXPRESS;Initial Catalog=data;Integrated Security=True");
 
         public void openConnection()
         {

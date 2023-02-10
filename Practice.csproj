@@ -46,18 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBase\DataBase.cs" />
-    <Compile Include="DataBase\IUserRepository.cs" />
-    <Compile Include="DataBase\UserRepository.cs" />
-    <Compile Include="practiceDataSet.Designer.cs">
+    <Compile Include="dataBase\DataBase.cs" />
+    <Compile Include="dataBase\UserRepository.cs" />
+    <Compile Include="dataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>practiceDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="TourAgencyDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="UI\Auth.cs">
       <SubType>Form</SubType>
@@ -97,17 +91,16 @@
     <EmbeddedResource Include="UI\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataBase\practice.bacpac" />
-    <None Include="practiceDataSet.xsc">
-      <DependentUpon>practiceDataSet.xsd</DependentUpon>
+    <None Include="dataDataSet.xsc">
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="practiceDataSet.xsd">
+    <None Include="dataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>practiceDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>dataDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="practiceDataSet.xss">
-      <DependentUpon>practiceDataSet.xsd</DependentUpon>
+    <None Include="dataDataSet.xss">
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,23 +111,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TourAgencyDataSet.xsc">
-      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TourAgencyDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TourAgencyDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TourAgencyDataSet.xss">
-      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

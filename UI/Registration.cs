@@ -1,21 +1,19 @@
-﻿using Practice.Common;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Practice.DataBase;
+using Practice.dataBase;
 
 namespace Practice.UI
 {
     public partial class Registration : Form
     {
-        IUserRepository userRepository;
-
-        public Registration(IUserRepository userRepository)
+        UserRepository userRepository = new UserRepository();
+        Auth auth = new Auth();
+        public Registration()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            this.userRepository = userRepository;
         }
 
         private void Registration_Load(object sender, EventArgs e)
@@ -33,7 +31,7 @@ namespace Practice.UI
 
             if(textBox_login.TextLength != 0 && textBox_password.TextLength != 0)
             {
-                if (userRepository.CheckUser(textBox_login.Text, textBox_password.Text))
+                if (auth.CheckUser(login, password))
                 {
                     return;
                 }

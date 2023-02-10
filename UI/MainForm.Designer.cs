@@ -31,12 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.registerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.practiceDataSet = new Practice.practiceDataSet();
-            this.registerTableAdapter = new Practice.practiceDataSetTableAdapters.registerTableAdapter();
-            this.tourAgencyDataSet = new Practice.TourAgencyDataSet();
-            this.tourAgencyDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelTableAdapter = new Practice.TourAgencyDataSetTableAdapters.HotelTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countOfStarsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +39,6 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.practiceDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tourAgencyDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tourAgencyDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,36 +61,7 @@
             // 
             // registerBindingSource
             // 
-            this.registerBindingSource.DataMember = "register";
-            this.registerBindingSource.DataSource = this.practiceDataSet;
-            // 
-            // practiceDataSet
-            // 
-            this.practiceDataSet.DataSetName = "practiceDataSet";
-            this.practiceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registerTableAdapter
-            // 
-            this.registerTableAdapter.ClearBeforeFill = true;
-            // 
-            // tourAgencyDataSet
-            // 
-            this.tourAgencyDataSet.DataSetName = "TourAgencyDataSet";
-            this.tourAgencyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tourAgencyDataSetBindingSource
-            // 
-            this.tourAgencyDataSetBindingSource.DataSource = this.tourAgencyDataSet;
-            this.tourAgencyDataSetBindingSource.Position = 0;
-            // 
-            // hotelBindingSource
-            // 
-            this.hotelBindingSource.DataMember = "Hotel";
-            this.hotelBindingSource.DataSource = this.tourAgencyDataSetBindingSource;
-            // 
-            // hotelTableAdapter
-            // 
-            this.hotelTableAdapter.ClearBeforeFill = true;
+            this.registerBindingSource.DataMember = "register";    
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -142,9 +105,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.practiceDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tourAgencyDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tourAgencyDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,13 +113,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private practiceDataSet practiceDataSet;
         private System.Windows.Forms.BindingSource registerBindingSource;
-        private practiceDataSetTableAdapters.registerTableAdapter registerTableAdapter;
-        private System.Windows.Forms.BindingSource tourAgencyDataSetBindingSource;
-        private TourAgencyDataSet tourAgencyDataSet;
         private System.Windows.Forms.BindingSource hotelBindingSource;
-        private TourAgencyDataSetTableAdapters.HotelTableAdapter hotelTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countOfStarsDataGridViewTextBoxColumn;

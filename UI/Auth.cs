@@ -1,17 +1,17 @@
-﻿using Practice.Common;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Practice.UI;
-using Practice.DataBase;
+using Practice.dataBase;
 
 namespace Practice
 {
     public partial class Auth : Form
     {
-        IUserRepository userRepository;
-        public Auth(IUserRepository userRepository)
+        DataBase database = new DataBase();
+        UserRepository userRepository = new UserRepository();
+        public Auth()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -21,19 +21,21 @@ namespace Practice
         {
             textBox_password.PasswordChar = '*';
 
-            textBox_login.MaxLength = 50;
-            textBox_password.MaxLength = 50;
+            textBox_login.MaxLength = 16;
+            textBox_password.MaxLength = 25;
         }
 
         private void jumpButton_Click(object sender, EventArgs e)
         {
-            var loginUser = textBox_login.Text;
-            var passwordUser = textBox_password.Text;
+            var login = textBox_login.Text;
+            var password = textBox_password.Text;
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querystring = $"select id_user, login_user, password_user from register where login_user = '{loginUser}' and password_user = '{passwordUser}'";
+            if (CheckUser(login, password)){
+                return;
+            }
 
             if(table.Rows.Count == 1)
             {
@@ -42,7 +44,6 @@ namespace Practice
                 Hide();
                 mainform.ShowDialog();
                 Show();
-
             }
 
             else
@@ -51,6 +52,28 @@ namespace Practice
             }
         }
 
+        public Boolean CheckUser(string login, string password)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            string querystring = $"select UserID, Username, Password from User where Username = '{login}' and Password = '{password}'";
+
+            SqlCommand command = new SqlCommand(querystring, database.getConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                MessageBox.Show("Этот пользователь уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void textBox_login_TextChanged(object sender, EventArgs e)
         {
 
@@ -63,7 +86,7 @@ namespace Practice
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registration registration = new Registration(userRepository);
+            Registration registration = new Registration();
             Hide();
             registration.ShowDialog();
             Show();
