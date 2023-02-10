@@ -9,7 +9,7 @@ namespace Practice.Common
 {
     internal class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=ATTATO\SQLEXPRESS;Initial Catalog=practice;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=gogs.wsr.ru;Initial Catalog=TourAgency;User ID=User04;Password=User04");
 
         public void openConnection()
         {

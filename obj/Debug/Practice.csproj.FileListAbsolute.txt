@@ -11,3 +11,16 @@ C:\Users\rde85\source\repos\Practice\obj\Debug\Practice.pdb
 C:\Users\rde85\source\repos\Practice\obj\Debug\Practice.Auth.resources
 C:\Users\rde85\source\repos\Practice\obj\Debug\Practice.UI.MainForm.resources
 C:\Users\rde85\source\repos\Practice\obj\Debug\Practice.UI.Registration.resources
+C:\Users\2389-20\source\repos\Practice\bin\Debug\Practice.exe.config
+C:\Users\2389-20\source\repos\Practice\bin\Debug\Practice.exe
+C:\Users\2389-20\source\repos\Practice\bin\Debug\Practice.pdb
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.csproj.AssemblyReference.cache
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.csproj.SuggestedBindingRedirects.cache
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.Auth.resources
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.Properties.Resources.resources
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.UI.MainForm.resources
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.UI.Registration.resources
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.csproj.GenerateResource.cache
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.csproj.CoreCompileInputs.cache
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.exe
+C:\Users\2389-20\source\repos\Practice\obj\Debug\Practice.pdb

@@ -32,5 +32,27 @@ namespace Practice.Properties {
                 return ((string)(this["practiceConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=gogs.wsr.ru;Initial Catalog=TourAgency;User ID=User04;Password=User04" +
+            "")]
+        public string TourAgencyConnectionString {
+            get {
+                return ((string)(this["TourAgencyConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=gogs.wsr.ru;Initial Catalog=qwertf;Persist Security Info=True;User ID" +
+            "=User04")]
+        public string qwertfConnectionString {
+            get {
+                return ((string)(this["qwertfConnectionString"]));
+            }
+        }
     }
 }

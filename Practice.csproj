@@ -47,10 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="DataBase\IUserRepository.cs" />
+    <Compile Include="DataBase\UserRepository.cs" />
     <Compile Include="practiceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>practiceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TourAgencyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="UI\Auth.cs">
       <SubType>Form</SubType>
@@ -111,6 +118,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TourAgencyDataSet.xsc">
+      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TourAgencyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TourAgencyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TourAgencyDataSet.xss">
+      <DependentUpon>TourAgencyDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

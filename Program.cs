@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Practice.DataBase;
+using Practice.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,8 @@ namespace Practice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Auth());
+            IUserRepository userRepository = new UserRepository();
+            Application.Run(new MainForm());
         }
     }
 }

@@ -4,13 +4,14 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Practice.UI;
+using Practice.DataBase;
 
 namespace Practice
 {
     public partial class Auth : Form
     {
-        DataBase dataBase = new DataBase();
-        public Auth()
+        IUserRepository userRepository;
+        public Auth(IUserRepository userRepository)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -33,11 +34,6 @@ namespace Practice
             DataTable table = new DataTable();
 
             string querystring = $"select id_user, login_user, password_user from register where login_user = '{loginUser}' and password_user = '{passwordUser}'";
-
-            SqlCommand command = new SqlCommand(querystring, dataBase.getConnection());
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
 
             if(table.Rows.Count == 1)
             {
@@ -67,7 +63,7 @@ namespace Practice
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registration registration = new Registration();
+            Registration registration = new Registration(userRepository);
             Hide();
             registration.ShowDialog();
             Show();
