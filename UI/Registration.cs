@@ -39,19 +39,27 @@ namespace Practice.UI
 
                 dataBase.openConnection();
 
-                if(command.ExecuteNonQuery() == 1)
+                if (textBox_password.Text != textBox_login.Text)
                 {
-                    MessageBox.Show("Аккаунт успешно создан!", "Успех!");
-                    Auth auth = new Auth();
-                    Hide();
-                    auth.ShowDialog();
+                    if(command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Аккаунт успешно создан!", "Успех!");
+                        Auth auth = new Auth();
+                        Hide();
+                        auth.ShowDialog();
+                    }
+
+                    else {
+                        MessageBox.Show("Аккаунт не создан!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    dataBase.closeConnection();
                 }
 
-                else {
-                    MessageBox.Show("Аккаунт не создан!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    MessageBox.Show("Вы не можете использовать логин в качестве пароля!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                dataBase.closeConnection();
             } 
             
             else
