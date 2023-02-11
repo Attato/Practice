@@ -10,7 +10,6 @@ namespace Practice
     public partial class Auth : Form
     {
         DataBase database = new DataBase();
-        UserRepository userRepository = new UserRepository();
         public Auth()
         {
             InitializeComponent();
@@ -33,9 +32,12 @@ namespace Practice
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            if (CheckUser(login, password)){
-                return;
-            }
+            string querystring = $"select UserID, Username, Password from auth where Username = '{login}' and Password = '{password}'";
+
+            SqlCommand command = new SqlCommand(querystring, database.getConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
 
             if(table.Rows.Count == 1)
             {
@@ -52,28 +54,6 @@ namespace Practice
             }
         }
 
-        public Boolean CheckUser(string login, string password)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-
-            string querystring = $"select UserID, Username, Password from User where Username = '{login}' and Password = '{password}'";
-
-            SqlCommand command = new SqlCommand(querystring, database.getConnection());
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
-            {
-                MessageBox.Show("Этот пользователь уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         private void textBox_login_TextChanged(object sender, EventArgs e)
         {
 

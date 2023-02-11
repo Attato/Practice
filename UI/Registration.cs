@@ -8,8 +8,7 @@ namespace Practice.UI
 {
     public partial class Registration : Form
     {
-        UserRepository userRepository = new UserRepository();
-        Auth auth = new Auth();
+        DataBase dataBase = new DataBase();
         public Registration()
         {
             InitializeComponent();
@@ -26,25 +25,70 @@ namespace Practice.UI
             var login = textBox_login.Text;
             var password = textBox_password.Text;
 
-            string queryString = $"insert into register(login_user, password_user) values ('{login}', '{password}')";
+            string queryString = $"insert into auth(Username, Password) values('{login}', '{password}')";
 
+            SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
 
             if(textBox_login.TextLength != 0 && textBox_password.TextLength != 0)
             {
-                if (auth.CheckUser(login, password))
+
+                if (CheckUser())
                 {
                     return;
+                }
+
+                dataBase.openConnection();
+
+                if(command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Аккаунт успешно создан!", "Успех!");
+                    Auth auth = new Auth();
+                    Hide();
+                    auth.ShowDialog();
                 }
 
                 else {
                     MessageBox.Show("Аккаунт не создан!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                dataBase.closeConnection();
             } 
             
             else
             {
                 MessageBox.Show("Поля не должны быть пустыми!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }  
+        }
+
+        private Boolean CheckUser()
+        {
+            var login = textBox_login.Text;
+            var password = textBox_password.Text;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            string querystring = $"select UserID, Username, Password from auth where Username = '{login}' and Password = '{password}'";
+
+            SqlCommand command = new SqlCommand(querystring, dataBase.getConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                MessageBox.Show("Этот пользователь уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void textBox_login_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

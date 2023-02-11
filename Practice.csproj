@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataBase\DataBase.cs" />
-    <Compile Include="dataBase\UserRepository.cs" />
     <Compile Include="dataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
